@@ -52,12 +52,7 @@
   {:level      :medium
    :use        '[condp filter]
    :alternates '[if cond]}
-  [coll]
-  (condp #(= %1 (filter (set %1) %2)) coll
-    [1 3]         :wonder-woman
-    [:a :b :c]    :durga
-    [[2 3] [4 5]] :cleopatra
-    :tuntun))
+  [coll])
 
 (defn repeat-and-truncate
   "Given coll and options to repeat and truncate
@@ -66,10 +61,7 @@
   (repeat-and-truncate (range 4) true true 6) => '(0 1 2 3 0 1)"
   {:level :medium
    :use   '[cond->> concat take]}
-  [coll rep? truncate? n]
-  (cond->> coll
-    rep?      (concat coll)
-    truncate? (take n)))
+  [coll rep? truncate? n])
 
 (defn order-in-words
   "Given x, y and z, returns a vector consisting of
@@ -79,11 +71,7 @@
   (order-in-words 2 3 4) => [:z-greater-than-x]"
   {:level :easy
    :use   '[cond-> conj]}
-  [x y z]
-  (cond-> []
-    (> x y) (conj :x-greater-than-y)
-    (> y z) (conj :y-greater-than-z)
-    (> z x) (conj :z-greater-than-x)))
+  [x y z])
 
 (defn zero-aliases
   "Given a zero-like value(0,[],(),#{},{}) should
@@ -97,10 +85,4 @@
   \"\"  -> :empty-string"
   {:level :easy
    :use   '[case]}
-  [zero-like-value]
-  (case zero-like-value
-    0   :zero
-    []  :empty
-    #{} :empty-set
-    {}  :empty-map
-    ""  :empty-string))
+  [zero-like-value])
