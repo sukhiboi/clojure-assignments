@@ -2,13 +2,13 @@
   (:require [clojure.test :refer [deftest testing is are]]
             [assignments.conditions :as c]))
 
-(deftest ^:kaocha/pending safe-division-test
+(deftest ^:implemented safe-division-test
   (testing "non zero denominator"
     (is (= 2 (c/safe-divide 4 2))))
   (testing "zero denominator"
     (is (nil? (c/safe-divide 3 0)))))
 
-(deftest ^:kaocha/pending informative-division-test
+(deftest ^:implementing informative-division-test
   (testing "non zero denominator calculates result"
     (is (= 2 (c/informative-divide 4 2))))
   (testing "zero denominator yields :infinite"
