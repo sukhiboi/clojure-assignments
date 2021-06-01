@@ -1,2 +1,4 @@
 .lsp
 .cpcache
+.nrepl-port
+output.calva-repl
